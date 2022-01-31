@@ -22,6 +22,39 @@ C/Cpp试验场
 
 ## test
 
+### `CppUnitTest` 试验
+`Visual Studio`自带的单元测试框架
+
+1. 与`Visual Studio`配合紧密
+   - 参考[这里](https://docs.microsoft.com/zh-cn/visualstudio/test/writing-unit-tests-for-c-cpp)
+   - 在测试资源管理器中可以直接执行
+   - 在`CodeLens`中可以直接跑测试
+2. 命令行
+   - 参考[这里](https://docs.microsoft.com/zh-cn/visualstudio/test/vstest-console-option)
+   - 运行**开发者命令提示行**
+   - `VsTest.Console UnitTestCpp.dll`
+3. 命令行示例
+```shell
+# 运行UnitTestCpp项目的所有测试用例
+VsTest.Console UnitTestCpp.dll
+
+# 运行UnitTestCpp项目的所有名为"TestMethond11"和"TestMethond12"的测试方法
+# (只看`TEST_METHOD`指定的方法名,并不区分命名空间,类名等)
+VsTest.Console UnitTestCpp.dll /Tests:TestMethod11,TestMethod12
+
+# 运行UnitTestCpp项目,TestCaseFilter
+
+VsTest.Console UnitTestCpp.dll /TestCaseFilter:"FullyQualifiedName~TestMethod11"
+# 所以这是正则了个寂寞,和这条是没区别的,并不能区别命名空间和类名
+VsTest.Console UnitTestCpp.dll /Tests:TestMethod11
+VsTest.Console UnitTestCpp.dll /TestCaseFilter:"TestMethod11"
+VsTest.Console UnitTestCpp.dll /TestCaseFilter:"Name~TestMethod11"
+
+# 看起来指定了测试限定名,经测无效
+VsTest.Console UnitTestCpp.dll /TestCaseFilter:"FullyQualifiedName=UnitTestCpp.UnitTestCpp.TestMethod11"
+VsTest.Console UnitTestCpp.dll /TestCaseFilter:"ClassName=UnitTestCpp.UnitTestCpp"
+```
+
 ### `doctest` 试验
 - [doctest](https://github.com/doctest/doctest)
 
