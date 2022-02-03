@@ -11,6 +11,7 @@ C/Cpp试验场
    ├─ test                      测试框架 试验
    │  ├─ doctest                doctest 试验
    │  └─ unity                  unity 试验
+   ├─ wasm					  wasm 试验
    └─ README.md                 说明文件(本文件)
 ```
 
@@ -70,3 +71,19 @@ VsTest.Console UnitTestCpp.dll /TestCaseFilter:"ClassName=UnitTestCpp.UnitTestCp
 
 额,总体不是很推荐了
 ![](assets/images/2022-01-31-13-05-16.png)
+
+## wasm
+
+### hello
+参考[官方示例](https://emscripten.org/docs/getting_started/Tutorial.html)
+
+- 编译
+```shell
+cd build
+mkdir out
+emcc ..\hello\main.c -o ./out/hello.html
+```
+
+- 查看
+	- 启动一个本地http服务,以`build/out`为根目录,以`8080`为访问端口.
+	- 访问`http://localhost:8080`
