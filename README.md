@@ -11,7 +11,11 @@ C/Cpp试验场
    ├─ test                      测试框架 试验
    │  ├─ doctest                doctest 试验
    │  └─ unity                  unity 试验
-   ├─ wasm					  wasm 试验
+   ├─ wasm					        wasm 试验
+   │  ├─ hello                  wasm入门 试验
+   │  ├─ function               wasm导出C函数 试验
+   │  ├─ in-react               react中使用wasm 试验
+   │  └─ in-react-mjs           react中使用wasm(mjs版) 试验
    └─ README.md                 说明文件(本文件)
 ```
 
@@ -105,3 +109,6 @@ emcc ..\function\main.c --shell-file=..\function\template.html -o ./out/func.htm
 	- 禁用缓存,避免开发中频繁修改效果不一致的问题
 	- 访问`http://localhost:8080/func.html`
 	- 点击"call xkFunc"按钮调用`xkFunc`函数
+
+### in-react-mjs
+- 见[README](/wasm/in-react-mjs/README.md)
