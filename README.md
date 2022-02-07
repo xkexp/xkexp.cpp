@@ -86,4 +86,22 @@ emcc ..\hello\main.c -o ./out/hello.html
 
 - 查看
 	- 启动一个本地http服务,以`build/out`为根目录,以`8080`为访问端口.
-	- 访问`http://localhost:8080`
+	- 禁用缓存,避免开发中频繁修改效果不一致的问题
+	- 访问`http://localhost:8080/hello.html`
+
+### function
+- html模板
+从`emsdk/upstream/emscripten/src`中复制`shell_minimal.html`为`template.html`,并加以修改
+
+- 编译
+```shell
+cd build
+mkdir out
+emcc ..\function\main.c --shell-file=..\function\template.html -o ./out/func.html -s EXPORTED_RUNTIME_METHODS=ccall -s EXPORTED_FUNCTIONS=_main,_xkFunc
+```
+
+- 查看
+	- 启动一个本地http服务,以`build/out`为根目录,以`8080`为访问端口.
+	- 禁用缓存,避免开发中频繁修改效果不一致的问题
+	- 访问`http://localhost:8080/func.html`
+	- 点击"call xkFunc"按钮调用`xkFunc`函数
