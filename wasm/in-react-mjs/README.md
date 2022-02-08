@@ -24,7 +24,8 @@ yarn build:mjs
 ```
 
 ## 脚本
-```powershell
+- `scripts/build-function-mjs.ps1`
+```powershell title=scripts/build-function-mjs.ps1
 # 设置emsdk环境变量
 &"$Env:EMSDK/emsdk.ps1" construct_env
 

@@ -1,18 +1,13 @@
-import React, { useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 // 导入mjs
-import xkFuncModule from './xkfunc.mjs';
+import { xkFunc } from './wasm/xkfunc.wasm';
+
 
 function App() {
 
-  // 在useEffect中调用c函数
-  useEffect(() => {
-    xkFuncModule()
-      .then(Module => {
-        Module.ccall("xkFunc", null, null, null);
-      })
-  });
+  console.log(xkFunc); // [Native Code]
+  console.log(xkFunc());
 
   return (
     <div className="App">
@@ -29,6 +24,7 @@ function App() {
         >
           Learn React
         </a>
+        <p>{xkFunc()}</p>
       </header>
     </div>
   );
